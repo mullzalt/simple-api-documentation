@@ -138,6 +138,7 @@ example of empty list:
 ### Reading Single Response
 
 > GET yourdomain.com/posts/:post_id
+
 > GET yourdomain.com/posts/2
 
 if post exists:
@@ -236,6 +237,7 @@ response if something is wrong with the server:
 ### Updating data
 
 > PUT yourdomain.com/posts/id
+
 > PUT yourdomain.com/posts/3
 
 request body in json:
@@ -261,6 +263,7 @@ response if data updated:
 ### Deleting data
 
 > DELETE yourdomain.com/posts/id
+
 > DELETE yourdomain.com/posts/3
 
 response if data successfully deleted:
