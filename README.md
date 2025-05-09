@@ -1,8 +1,21 @@
-# Response Structure
+# Simple JSON API Specification
+
+Simple JSON API response structure format.
 
 Response and request should be in written in JSON
 
-## Response
+## Table of Content
+
+- [Table of Content](#table-of-content)
+- [Response structure](#response-structure)
+- [Example](#example)
+  - [Reading Many Data](#read-many-data)
+  - [Reading Single Data](#read-single-data)
+  - [Creating Data](#create-data)
+  - [Updating Data](#update-data)
+  - [Delete Data](#delete-data)
+
+## Response Structure
 
 ```typescript
 type Response<Error, Data, Metadata, Pagination> =
@@ -66,7 +79,7 @@ type PostMetadata = {
 
 The CRUD operation request and responses should be like following:
 
-### Reading many data
+### Read many data
 
 > GET yourdomain.com/api/v1/posts
 
@@ -81,7 +94,7 @@ type PostsResponse =
   | ResponseFail<HTTPErrorResponse>;
 // for single response
 type PostResponse =
-  | ResponseSuccess<Post, never, Pagination>
+  | ResponseSuccess<Post, PostMetadata, never>
   | ResponseFail<HTTPErrorResponse>;
 ```
 
@@ -135,7 +148,7 @@ example of empty list:
 }
 ```
 
-### Reading Single Response
+### Read single data
 
 > GET yourdomain.com/posts/:post_id
 
@@ -174,7 +187,7 @@ if post not exists:
 }
 ```
 
-### Creating Data
+### Create data
 
 > POST yourdomain.com/posts
 
@@ -234,7 +247,7 @@ response if something is wrong with the server:
 }
 ```
 
-### Updating data
+### Update data
 
 > PUT yourdomain.com/posts/id
 
@@ -260,7 +273,7 @@ response if data updated:
 }
 ```
 
-### Deleting data
+### Delete data
 
 > DELETE yourdomain.com/posts/id
 
